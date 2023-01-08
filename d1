@@ -1,0 +1,54 @@
+package eliom;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+public class ex1 {
+
+	public static void main(String []args)
+	{
+		JFrame frame=new JFrame("word and characters counter");
+		JLabel label1=new JLabel("Words : "); 
+		label1.setBounds (60,25,100,30);
+		
+		JLabel label2=new JLabel("Charcters : ");
+		label2.setBounds (200,25,100, 30);
+		
+		
+		JTextArea area= new JTextArea();
+		area.setBounds (20,75,350,200);
+		
+		JButton btni=new JButton("Count words and characters");
+		btn1.setBounds (100, 300, 200, 30);
+		
+		
+		btn1.addActionListener(new ActionListener());{
+		w
+		
+		public void ActionPerformed(ActionEvent e){
+		
+		String content=area.getText;
+		
+		String [] words=content.split(" ");
+		label1.setText("words : "+ words.length);
+		String contentWitoutSpace=content.replace(" ",""); 
+		label2.setText("Charcters : "+ contentWitoutSpace.length());
+		}
+		}
+		
+
+		frame.add(label1);
+		frame.add(label2);
+		frame.add(area);
+		frame.add(btn1);
+		frame.setLayout (null);
+		frame.setDefaultCloseOperation(JFram.EXIT_ON_CLOSE);
+		frame.setSize (400,400);
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+	}
+	
+}

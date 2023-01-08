@@ -1,0 +1,91 @@
+package eliom;
+
+	import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+
+ 
+
+public class MainClass {
+  public static void main(String[] args) {
+    JFrame frame = new JFrame("Word and Picture Matching Game");
+    frame.setSize(400, 500);
+    frame.setVisible(true);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+ 
+
+    // Create an array of the words to display
+    String[] words = {"apple", "orange", "banana"};
+
+ 
+
+    // Choose a random word to display
+    int index = (int)(Math.random() * words.length);
+    String word = words[index];
+
+ 
+
+    // Display the word
+    JLabel l1 = new JLabel(word);
+    l1.setBounds(50, 10, 260, 50);
+    Font f = new Font("Times New Roman", Font.BOLD, 24);
+    l1.setFont(f);
+    frame.add(l1);
+
+ 
+
+    // Add the images
+    ImageIcon apple = new ImageIcon("apple.png");
+    ImageIcon orange = new ImageIcon("orange.png");
+    ImageIcon banana = new ImageIcon("banana.png");
+
+ 
+
+    // Create buttons for the images
+    JButton b1 = new JButton(apple);
+    b1.setBounds(50, 70, 100, 100);
+    frame.add(b1);
+    JButton b2 = new JButton(orange);
+    b2.setBounds(160, 70, 100, 100);
+    frame.add(b2);
+    JButton b3 = new JButton(banana);
+    b3.setBounds(270, 70, 100, 100);
+    frame.add(b3);
+
+ 
+
+    // Add action listeners to the buttons to check the answer
+    b1.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        checkAnswer(word, "apple");
+      }
+    });
+    b2.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        checkAnswer(word, "orange");
+      }
+    });
+    b3.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        checkAnswer(word, "banana");
+      }
+    });
+  }
+
+ 
+
+  // Method to check if the selected image matches the displayed word
+  public static void checkAnswer(String word, String answer) {
+    if (word.equals(answer)) {
+      JOptionPane.showMessageDialog(null, "Correct!");
+    } else {
+      JOptionPane.showMessageDialog(null, "Incorrect. The correct answer was " + word + ".");
+    }
+  }
+}
+}
